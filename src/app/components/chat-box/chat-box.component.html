@@ -1,0 +1,14 @@
+<ion-item 
+  lines="none" 
+  [class]="chat?.senderUid == recipientId ? 'user' : 'sender'">
+  <ion-label 
+    [slot]="chat?.recipientUid != recipientId ? 'end' : 'start'" class="ion-text-wrap">
+    <ion-text>{{chat?.text}}</ion-text>
+    <ion-note>
+      <small>{{chat?.timestamp?.toDate() | date: 'HH:mm' }}</small>
+      <ion-icon 
+        [color]="chat?.recipientUid == recipientId ? 'light' : 'primary'" 
+        name="checkmark-done-outline"></ion-icon>
+    </ion-note>
+  </ion-label>
+</ion-item>

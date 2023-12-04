@@ -1,0 +1,28 @@
+<ion-header class="title-header">
+  <ion-toolbar color="primary">
+    <ion-title class='ion-margin-horizontal'><ion-icon name="chatbox-outline"
+        class='ion-margin-end'></ion-icon>Bienvenido 😁</ion-title>
+  </ion-toolbar>
+  <ion-segment>
+    <ion-title class="ion-margin ion-text-center">Integrantes</ion-title>
+  </ion-segment>
+</ion-header>
+
+<ion-content color="lights" class="ion-text-center">
+  <ion-list *ngIf="segment == 'chats' && (chatRooms) as rooms">
+    <ion-row>
+      <ion-grid  *ngFor="let item of rooms" >
+        <ion-card class="custom">
+          <ion-card-header>
+            <ion-card-title class="custom-title">{{item?.name}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <img [src]="item?.photo" />
+          </ion-card-content>
+          <ion-button color="success" (click)="getChat(item)">Chattear</ion-button>
+        </ion-card>
+      </ion-grid>
+    </ion-row>
+  </ion-list>
+</ion-content>
